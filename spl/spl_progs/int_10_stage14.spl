@@ -1,0 +1,23 @@
+
+alias PID R3;
+
+PID = [SYSTEM_STATUS_TABLE+1];
+[PROCESS_TABLE + PID*16 + 4] = TERMINATED;
+
+alias processCount R4;
+processCount = 1;
+
+while(processCount <16) do 
+    if([PROCESS_TABLE + processCount*16 +4]!=TERMINATED) then
+        break;
+    endif;
+    processCount = processCount+1;
+endwhile;
+
+if(processCount==16) then
+halt;
+else
+call SCHEDULER;
+endif;
+
+return;

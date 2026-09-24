@@ -1,0 +1,3 @@
+load --os $HOME/myexpos/spl/spl_progs/os_startup10.xsm
+load --int=7 $HOME/myexpos/spl/spl_progs/sample_int7.xsm
+load --init $HOME/myexpos/expl/expl_progs/stage10assign1.xsm
